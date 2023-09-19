@@ -1,0 +1,38 @@
+---
+title: Kai-docs
+description: Kai controller documentation
+template: splash
+hero:
+  title: Deploy your inference pipelines to Kubernetes 
+  tagline: Kai is a no frills pipeline orchestrator
+  image:
+    file: ../../assets/kai-500x500.png
+  actions:
+    - text: Get started
+      link: /guides/getting_started/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/dreamstax/kai
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Next steps
+
+<CardGrid stagger>
+	<Card title="Model Deployments" icon="pencil">
+		Easily deploy inference steps in your pipeline by providing a link to your model. Kai integrates with all the popular model formats and storage providers.
+	</Card>
+	<Card title="Service Deployments" icon="add-document">
+		Sometimes you need to perform pre or post processing steps within your pipeline. Kai makes it easy to deploy and integrate general services into your pipeline as well.
+	</Card>
+	<Card title="Pipelines" icon="setting">
+		Kai simplifies pipeline orchestration. The WYSIWYG of pipeliners. Complex DAGs be damned.
+	</Card>
+	<Card title="Share" icon="open-book">
+		By leveraging Kai you have full access to the Kubernetes ecosystem when it comes to sharing and distributing your inference pipelines.
+    Tools like Helm, and Kustomize make it easy to package and version your entire pipeline.
+	</Card>
+</CardGrid>
