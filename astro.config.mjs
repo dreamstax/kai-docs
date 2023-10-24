@@ -9,6 +9,7 @@ export default defineConfig({
 			title: 'Kai',
 			social: {
 				github: 'https://github.com/dreamstax/kai',
+                discord: 'https://discord.gg/THywZNSMFe',
 			},
 			sidebar: [
 				{
