@@ -2,43 +2,47 @@
 title: Getting Started
 description: A Kai quickstart.
 ---
-You’ll need a Kubernetes cluster to run against. You can use [KIND](https://sigs.k8s.io/kind) to get a local cluster for testing, or use an existing remote cluster.
+## Requirements
+- Go >= 1.20
+- Docker
 
-## Local installation [WIP]
-Clone the repository
-```sh 
+## Installation
+When starting from scratch i.e. you don't have a kubernetes cluster running the quickest way to get up and running with Kai is to clone the repo and run the quickstart using make. This will create a cluster using [kind](https://sigs.k8s.io/kind), build and deploy the controller, and deploy an example pipeline.
+```bash
 git clone https://github.com/dreamstax/kai && cd kai
-```
-
-Download dependencies, create cluster, install CRDs, and deploy controller
-```sh
 make quickstart
 ```
+## Existing Clusters
+*note: this section is wip as we do not yet have a first release*
 
-This is an exhaustive build and install of all required dependencies and assumes nothing exists. This is mostly useful for initial repo pulls or starting from scratch.
-
-After completion of the make command, ensure the controller is running in the cluster by checking the pods within the namespace.
-```sh
-kubectl get pods -n kai-system
+Use `kubectl` to install the CRDs and deploy the controller to your cluster.
+```bash
+kubectl apply -f {github-release-url}
+```
+## Usage
+Create a new pipeline by defining a Pipeline resource.
+```yaml
+# pipeline.yaml
+apiVersion: core.kai.io/v1alpha1
+kind: Pipeline
+metadata:
+  name: image-classifier
+spec:
+  steps:
+  - spec:
+      model:
+        modelFormat: pytorch
+        uri: gs://kfserving-examples/models/torchserve/image_classifier/v1
 ```
 
-Deploy example application
-```sh
-kubectl apply -f examples/simple-pipeline/
+Then apply this pipeline resource to the cluster.
+```bash
+kubectl apply -f pipeline.yaml
 ```
+## Executing a Pipeline
+*note: this section is wip as we build out [kai-piper](https://github.com/dreamstax/kai-piper)*
 
-Wait until resources become ready then port-forward kai-gateway service
-```sh
-TODO: command
-```
+- retrieve pipeline ID (pipeline resource could expose this, also available via kai-piper)
+- port-forward kai-piper server (could also be registered on an ingress gateway)
+- call `/v1alpha1/pipelineJobs/{job_id}:run`
 
-In a separate terminal curl the example application
-
-```sh
-curl http://localhost:8888/simple-pipeline
-```
-
-Clean up
-```sh
-make clean
-```
