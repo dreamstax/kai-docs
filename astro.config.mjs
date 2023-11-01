@@ -26,6 +26,7 @@ export default defineConfig({
 				},
                 {
                     label: 'About',
+                    collapsed: true,
                     autogenerate: { directory: 'about' },
                 }
 			],
