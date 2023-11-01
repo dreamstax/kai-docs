@@ -28,7 +28,7 @@ export default defineConfig({
            head: [
                {
                    tag: 'script',
-                   attr: {
+                   attrs: {
                        src: 'https://plausible.io/js/script.js',
                        'data-domain': 'kai-docs.dreamstax.io',
                        defer: true,
