@@ -24,6 +24,10 @@ export default defineConfig({
 					label: 'Features',
 					autogenerate: { directory: 'features' },
 				},
+                {
+                    label: 'About',
+                    autogenerate: { directory: 'about' },
+                }
 			],
            head: [
                {

@@ -1,13 +1,17 @@
 ---
 title: Getting Started
 description: A Kai quickstart.
+sidebar:
+  order: 0
 ---
 ## Requirements
 - Go >= 1.20
 - Docker
 
 ## Installation
-When starting from scratch i.e. you don't have a kubernetes cluster running the quickest way to get up and running with Kai is to clone the repo and run the quickstart using make. This will create a cluster using [kind](https://sigs.k8s.io/kind), build and deploy the controller, and deploy an example pipeline.
+When starting from scratch (you don't have a kubernetes cluster) the quickest way to get up and running with Kai is to clone the repo and run the quickstart using make. This will create a cluster using [kind](https://sigs.k8s.io/kind), build and deploy the controller, and deploy an example pipeline.
+
+Clone the repo and run the quickstart.
 ```bash
 git clone https://github.com/dreamstax/kai && cd kai
 make quickstart
@@ -42,6 +46,7 @@ kubectl apply -f pipeline.yaml
 ## Executing a Pipeline
 *note: this section is wip as we build out [kai-piper](https://github.com/dreamstax/kai-piper)*
 
+Potential steps...
 - retrieve pipeline ID (pipeline resource could expose this, also available via kai-piper)
 - port-forward kai-piper server (could also be registered on an ingress gateway)
 - call `/v1alpha1/pipelineJobs/{job_id}:run`
