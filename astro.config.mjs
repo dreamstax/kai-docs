@@ -29,7 +29,7 @@ export default defineConfig({
                {
                    tag: 'script',
                    attrs: {
-                       src: 'https://plausible.io/js/script.js',
+                       src: 'https://plausible.io/js/script.outbound-links.js',
                        'data-domain': 'kai-docs.dreamstax.io',
                        defer: true,
                    }
