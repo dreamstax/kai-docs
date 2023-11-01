@@ -25,6 +25,16 @@ export default defineConfig({
 					autogenerate: { directory: 'features' },
 				},
 			],
+           head: [
+               {
+                   tag: 'script',
+                   attr: {
+                       src: 'https://plausible.io/js/script.js',
+                       'data-domain': 'kai-docs.dreamstax.io',
+                       defer: true,
+                   }
+               }
+           ],
 		}),
 	],
 });
