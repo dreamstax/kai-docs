@@ -1,6 +1,6 @@
 ---
 title: Site Stats
-description: Kai External Steps guide
+description: Kai website stats
 ---
 This wesite's stats page is publically available and can be viewed [here](https://plausible.io/kai-docs.dreamstax.io).
 
